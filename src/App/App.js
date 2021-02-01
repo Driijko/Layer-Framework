@@ -30,6 +30,7 @@ function App() {
       <SiteForegroundContextProvider>
         <Router>
           <Switch>
+            {/* <Route path="page1" component={Page1} /> */}
           </Switch>
         </Router>
         <SiteForeground />
