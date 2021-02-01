@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 
-import {delay} from "../settings";
+import {delay} from "../../settings";
 
 export default function WindowResize() {
 
