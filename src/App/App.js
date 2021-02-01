@@ -19,7 +19,7 @@ import SiteBackground from "./Content/0 Site/SiteBackground";
 function App() {
   return (
     <div>
-      {/* <SiteBackground /> */}
+      <SiteBackground />
       {/* <Audio audio={[music]} playAudio={0} loop /> */}
       {/* <SiteForegroundContextProvider>
         <Router>
