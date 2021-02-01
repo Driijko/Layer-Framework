@@ -8,9 +8,12 @@ import "./App.css";
 // Import context / providers ----------------------------------------
 import {SiteForegroundContextProvider} from "./Content/0 Site/SiteForeground";
 
-// Import Components ---------------------------------------------
+// Import Site Components ---------------------------------------------
 import SiteBackground from "./Content/0 Site/SiteBackground";
 import {SiteForeground} from "./Content/0 Site/SiteForeground";
+
+// Import Pages ---------------------------------------------------------
+import Page1 from "./Content/1 Sections/Page 1/Page1";
 
 // Import custom hooks ---------------------------------------------
 import WindowResize from "./Tools/hooks/WindowResize";
@@ -30,7 +33,7 @@ function App() {
       <SiteForegroundContextProvider>
         <Router>
           <Switch>
-            {/* <Route path="page1" component={Page1} /> */}
+            <Route path="/page1" component={Page1} />
           </Switch>
         </Router>
         <SiteForeground />
