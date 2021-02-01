@@ -6,11 +6,11 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
 
 // Import context / providers ----------------------------------------
-// import {SiteForegroundContextProvider} from "./Content/0 Site/SiteForeground";
+import {SiteForegroundContextProvider} from "./Content/0 Site/SiteForeground";
 
 // Import Components ---------------------------------------------
 import SiteBackground from "./Content/0 Site/SiteBackground";
-// import {SiteForeground} from "./Content/0 Site/SiteForeground";
+import {SiteForeground} from "./Content/0 Site/SiteForeground";
 
 // Import custom hooks ---------------------------------------------
 import WindowResize from "./Tools/hooks/WindowResize";
@@ -27,13 +27,13 @@ function App() {
     <div>
       <SiteBackground />
       {/* <Audio audio={[music]} playAudio={0} loop /> */}
-      {/* <SiteForegroundContextProvider>
+      <SiteForegroundContextProvider>
         <Router>
           <Switch>
           </Switch>
         </Router>
         <SiteForeground />
-      </SiteForegroundContextProvider> */}
+      </SiteForegroundContextProvider>
     </div>
   );
 };
