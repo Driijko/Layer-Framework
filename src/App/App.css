@@ -1,0 +1,9 @@
+body {
+    font-family: Montserrat, sans-serif;
+    color: white;
+}
+
+/* Handles hiding scrollbars in Chrome and Edge */
+::-webkit-scrollbar {
+    display: none;
+}
