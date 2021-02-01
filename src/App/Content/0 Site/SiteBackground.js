@@ -13,10 +13,10 @@ const SiteBackgroundDiv = styled("div")`${({mousePos})=>css`
     transition-timing-function: linear;
     transition-duration: 1s;
     background-color: 
-        rgb(
-            ${100 + (155 * (mousePos.x / window.innerWidth))},
-            ${100 * (mousePos.y / window.innerHeight)}, 
-            0
+        hsl(
+            0,
+            ${50 + (50 * (mousePos.x / window.innerWidth))}%,
+            ${30 + (40 * (mousePos.y / window.innerHeight))}%
         )
     ;
     box-sizing: border-box;
