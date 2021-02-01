@@ -1,6 +1,6 @@
 //IMPORTS //////////////////////////////////////////////////////////////
 // Import libraries --------------------------------------------------
-// import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 // Import Universal Styles ------------------------------------------
 import "./App.css";
@@ -9,7 +9,7 @@ import "./App.css";
 // import {SiteForegroundContextProvider} from "./Content/0 Site/SiteForeground";
 
 // Import Components ---------------------------------------------
-// import SiteBackground from "./Content/0 Site/SiteBackground";
+import SiteBackground from "./Content/0 Site/SiteBackground";
 // import {SiteForeground} from "./Content/0 Site/SiteForeground";
 
 // Import Music ---------------------------------------------- 
