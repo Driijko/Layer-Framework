@@ -3,7 +3,7 @@
 import styled, {css} from "styled-components";
 
 // Import helpers --------------------------------------------
-import positioning from "../../0 Element Tools/";
+import positioning from "../../0 Element Tools/positioning";
 
 const levelToFontSize = [6, 7, 8, 10, 12, 15]
 

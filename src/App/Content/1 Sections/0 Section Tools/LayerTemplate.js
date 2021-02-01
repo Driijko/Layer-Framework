@@ -2,7 +2,9 @@
 // Import components ----------------------------------------------
 
 // COMPONENT ////////////////////////////////////////////////////////////
-function PageXLayerX({width, height, tabIndex, enterKey, triggerExit}) {
+function PageXLayerX({
+    width, height, tabIndex, enterKey, triggerExit, changeLayerFocus
+}) {
 
     // RENDER /////////////////////////////////////////////////////////////
     return (

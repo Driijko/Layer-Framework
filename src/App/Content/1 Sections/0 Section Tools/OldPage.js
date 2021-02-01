@@ -9,7 +9,6 @@ import SiteForegroundContext from "../../0 Site/SiteForeground";
 
 // Import Components -----------------------------------------------------
 import UniformResponse from "./UniformResponse/UniformResponse";
-import Layer from "./Layer";
 
 // Import Custom Hooks ----------------------------------------------------
 import useKey from "../../../Tools/hooks/useKey";
@@ -47,7 +46,7 @@ const enterTime = pageTransitionDuration / 2;
 const exitTime = pageTransitionDuration / 2;
 
 // COMPONENT ////////////////////////////////////////////////////////////
-function Page({layers, gutter}) {
+function Page({children, layerNum}) {
 
     // CONTEXT /////////////////////////////////////////////////////////////
     const {triggerForegroundAnimate} = useContext(SiteForegroundContext);
@@ -109,11 +108,11 @@ function Page({layers, gutter}) {
 
     function changeLayerFocus(direction) {
         if (direction === "forwards") {
-            setLayerFocus((layerFocus + 1) % (layers.length + 1));
+            setLayerFocus((layerFocus + 1) % (layerNum + 1));
             setStartingTabIndex("first");
         }
         else if (direction === "backwards") {
-            setLayerFocus((layerFocus + layers.length) % (layers.length + 1));
+            setLayerFocus((layerFocus + layerNum) % (layerNum + 1));
             setStartingTabIndex("last");
         };
     };
@@ -153,50 +152,27 @@ function Page({layers, gutter}) {
     }, [tab]);
 
     // CHILDREN PROPS //////////////////////////////////////////////
-    // const layers = [];
-    // Children.forEach(children, (child, index)=> {
-    //     if (index !== 1) {
-    //         layers.push(
-    //             cloneElement(child, {
-    //                 key: index,
-    //                 layerFocus: layerFocus,
-    //                 "changeLayerFocus": changeLayerFocus,
-    //                 startingTabIndex: startingTabIndex,
-    //                 tab: tab,
-    //                 enterKey: enterKey,
-    //                 "triggerExit": triggerExit,
-    //             })
-    //         );
-    //     }
-    //     else {
-    //         layers.push(child);
-    //     };
-    // });
-
-
+    const layers = [];
+    Children.forEach(children, (child, index)=> {
+        if (index !== 1) {
+            layers.push(
+                cloneElement(child, {
+                    key: index,
+                    layerFocus: layerFocus,
+                    "changeLayerFocus": changeLayerFocus,
+                    startingTabIndex: startingTabIndex,
+                    tab: tab,
+                    enterKey: enterKey,
+                    "triggerExit": triggerExit,
+                })
+            );
+        }
+        else {
+            layers.push(child);
+        };
+    });
 
     // RENDER /////////////////////////////////////////////////////
-    // return (
-    //     <PageDiv phase={phase}>
-    //         {phase === "exit" ?
-    //             <Redirect to={leaveTo} />
-    //             : null
-    //         }
-
-    //         {/* <Audio audio={[sfxEnterExit]} playAudio={playSfx} /> */}
-
-    //         <UniformResponse>
-    //             {layers}
-    //         </UniformResponse>
-    //     </PageDiv>
-    // );
-
-        //                 layerFocus: layerFocus,
-    //                 "changeLayerFocus": changeLayerFocus,
-    //                 startingTabIndex: startingTabIndex,
-    //                 tab: tab,
-    //                 enterKey: enterKey,
-    //                 "triggerExit": triggerExit,
     return (
         <PageDiv phase={phase}>
             {phase === "exit" ?
@@ -207,23 +183,7 @@ function Page({layers, gutter}) {
             {/* <Audio audio={[sfxEnterExit]} playAudio={playSfx} /> */}
 
             <UniformResponse>
-
-                <Layer
-                    layerFocus={layerFocus}
-                    changeLayerFocus={changeLayerFocus}
-                    startingTabIndex={startingTabIndex}
-                    tab={tab}
-                    enterKey={enterKey}
-                    triggerExit={triggerExit}
-                    type={layers[0].type}
-                    layerNum={1}
-                    focusableElements={layers[0].focusableElements}
-                >
-                    {layers[0].layer}
-                </Layer>
-
-                {gutter}
-
+                {layers}
             </UniformResponse>
         </PageDiv>
     );

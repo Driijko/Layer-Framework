@@ -8,27 +8,27 @@ import LayerDiv from "./LayerDiv";
 // COMPONENT ///////////////////////////////////////////////////////
 function Layer({
     children, type, enterKey, tab, triggerExit, layerFocus, changeLayerFocus,
-    layerNum, focusableElements, width, height, startingTabIndex
+    focus, width, height, startingTabIndex
 }) {
 
     // TAB INDEX ///////////////////////////////////////////////////
     const [tabIndex, setTabIndex] = useState(null);
 
     useEffect(()=> {
-        if (layerFocus === layerNum) {
+        if (layerFocus === focus.layerNum) {
             if (startingTabIndex === "first") {
                 setTabIndex(1);
             }
             else if (startingTabIndex === "last") {
-                setTabIndex(focusableElements);
+                setTabIndex(focus.focusableElements);
             };
         };
     },[layerFocus]);
 
     useEffect(()=> {
-        if (tab && layerFocus === layerNum) {
+        if (tab && layerFocus === focus.layerNum) {
             if (tab === "forwards") {
-                if (tabIndex === focusableElements) {
+                if (tabIndex === focus.focusableElements) {
                     changeLayerFocus("forwards");
                     setTabIndex(0);
                 }
