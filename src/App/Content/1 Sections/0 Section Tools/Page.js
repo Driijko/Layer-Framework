@@ -174,6 +174,7 @@ function Page({layers, gutter}) {
                     type={layers[0].type}
                     layerNum={1}
                     focusableElements={layers[0].focusableElements}
+                    initialRenderedModals={layers[0].initialRenderedModals}
                 >
                     {layers[0].layer}
                 </Layer>

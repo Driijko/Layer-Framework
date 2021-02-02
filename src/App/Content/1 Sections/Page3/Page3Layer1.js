@@ -1,12 +1,12 @@
 // IMPORTS //////////////////////////////////////////////////////////
 // Import components ----------------------------------------------
+import Link from "../../2 Elements/Links/Link";
+import LayerSection from "../0 Section Tools/LayerSection";
 
 // COMPONENT ////////////////////////////////////////////////////////////
-function PageXLayerX({
-    width, height, tabIndex, enterKey, triggerExit, changeLayerFocus,
-    renderedModals, openCloseModals,
+function Page3Layer1({
+    width, height, tabIndex, enterKey, triggerExit, changeLayerFocus
 }) {
-
     // RENDER /////////////////////////////////////////////////////////////
     return (
         <>
@@ -16,4 +16,4 @@ function PageXLayerX({
 };
 
 // EXPORTS ///////////////////////////////////////////////////////////////
-export default PageXLayerX;
+export default Page3Layer1;

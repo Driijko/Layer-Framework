@@ -8,10 +8,11 @@ import LayerDiv from "./LayerDiv";
 // COMPONENT ///////////////////////////////////////////////////////
 function Layer({
     children, type, enterKey, tab, triggerExit, layerFocus, changeLayerFocus,
-    layerNum, focusableElements, width, height, startingTabIndex
+    layerNum, focusableElements, width, height, startingTabIndex,
+    initialRenderedModals
 }) {
 
-    // TAB INDEX ///////////////////////////////////////////////////
+    // TAB INDEX  AND FOCUS ///////////////////////////////////////////////////
     const [tabIndex, setTabIndex] = useState(null);
 
     useEffect(()=> {
@@ -48,6 +49,23 @@ function Layer({
         }
     },[tab]);
 
+    // MODAL LAYERS //////////////////////////////////////////////////
+    const [renderedModals, setRenderedModals] = useState(initialRenderedModals);
+    
+    function openCloseModals(modalLayerNum, identifier) {
+
+        const result = renderedModals.map((modalLayer, index)=> {
+            if (index === modalLayerNum) {
+                return identifier;
+            }
+            else {
+                return modalLayer;
+            };
+        });
+
+        setRenderedModals(result);
+    };
+
     // ADD PROPS TO CHILD //////////////////////////////////////////
     const modifiedChild = cloneElement(children, {
         tabIndex: tabIndex,
@@ -56,6 +74,8 @@ function Layer({
         enterKey: enterKey,
         "triggerExit": triggerExit,
         "changeLayerFocus": changeLayerFocus,
+        renderedModals: renderedModals,
+        "openCloseModals": openCloseModals,
     });
     
     // RENDER ////////////////////////////////////////////////////

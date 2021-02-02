@@ -15,6 +15,7 @@ import {SiteForeground} from "./Content/0 Site/SiteForeground";
 // Import Pages ---------------------------------------------------------
 import Page1 from "./Content/1 Sections/Page 1/Page1";
 import Page2 from "./Content/1 Sections/Page2/Page2";
+import Page3 from "./Content/1 Sections/Page3/Page3";
 import SplashScreen from "./Content/1 Sections/Splash Screen/SplashScreen";
 
 // Import custom hooks ---------------------------------------------
@@ -37,6 +38,7 @@ function App() {
           <Switch>
             <Route path="/page1" component={Page1} />
             <Route path="/page2" component={Page2} />
+            <Route path="/page3" component={Page3} />
             <Route path="/splash" component={SplashScreen} />
           </Switch>
         </Router>
