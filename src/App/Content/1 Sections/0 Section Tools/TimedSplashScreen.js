@@ -4,7 +4,7 @@ import {useState, useEffect} from "react";
 import {Redirect} from "react-router-dom";
 
 // Import components --------------------------------------------
-import UniformResponse from "./UniformResponse/UniformResponse";
+import UniformResponse from "../0 Section Tools/UniformResponse/UniformResponse";
 
 // COMPONENT ///////////////////////////////////////////////////
 function TimedSplashScreen({duration, children, leaveTo}) {

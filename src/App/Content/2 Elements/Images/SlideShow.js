@@ -3,7 +3,7 @@
 import {useState, useEffect, cloneElement} from "react";
 
 // Import Slide shows -----------------------------------------------
-import SlideShow0 from "./SlideShows/SlideShow0";
+import SlideShow0 from "./Slide Shows/SlideShow0";
 
 const slideShows = [
     <SlideShow0 />,

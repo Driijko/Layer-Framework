@@ -152,51 +152,7 @@ function Page({layers, gutter}) {
         }
     }, [tab]);
 
-    // CHILDREN PROPS //////////////////////////////////////////////
-    // const layers = [];
-    // Children.forEach(children, (child, index)=> {
-    //     if (index !== 1) {
-    //         layers.push(
-    //             cloneElement(child, {
-    //                 key: index,
-    //                 layerFocus: layerFocus,
-    //                 "changeLayerFocus": changeLayerFocus,
-    //                 startingTabIndex: startingTabIndex,
-    //                 tab: tab,
-    //                 enterKey: enterKey,
-    //                 "triggerExit": triggerExit,
-    //             })
-    //         );
-    //     }
-    //     else {
-    //         layers.push(child);
-    //     };
-    // });
-
-
-
-    // RENDER /////////////////////////////////////////////////////
-    // return (
-    //     <PageDiv phase={phase}>
-    //         {phase === "exit" ?
-    //             <Redirect to={leaveTo} />
-    //             : null
-    //         }
-
-    //         {/* <Audio audio={[sfxEnterExit]} playAudio={playSfx} /> */}
-
-    //         <UniformResponse>
-    //             {layers}
-    //         </UniformResponse>
-    //     </PageDiv>
-    // );
-
-        //                 layerFocus: layerFocus,
-    //                 "changeLayerFocus": changeLayerFocus,
-    //                 startingTabIndex: startingTabIndex,
-    //                 tab: tab,
-    //                 enterKey: enterKey,
-    //                 "triggerExit": triggerExit,
+    // RENDER /////////////////////////////////////////////////////////////
     return (
         <PageDiv phase={phase}>
             {phase === "exit" ?
