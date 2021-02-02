@@ -224,6 +224,23 @@ function Page({layers, gutter}) {
 
                 {gutter}
 
+                {layers.length > 1 ?
+                    <Layer
+                        layerFocus={layerFocus}
+                        changeLayerFocus={changeLayerFocus}
+                        startingTabIndex={startingTabIndex}
+                        tab={tab}
+                        enterKey={enterKey}
+                        triggerExit={triggerExit}
+                        type={layers[1].type}
+                        layerNum={2}
+                        focusableElements={layers[1].focusableElements}
+                    >
+                        {layers[1].layer}
+                    </Layer>
+                    : <></>
+                }
+
             </UniformResponse>
         </PageDiv>
     );
