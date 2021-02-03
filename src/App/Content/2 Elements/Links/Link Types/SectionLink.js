@@ -4,7 +4,7 @@ import {useEffect} from "react";
 
 // COMPONENT ///////////////////////////////////////////////////////
 function SectionLink({
-    interactivity, linkTo, triggerExit
+    interactivity, linkTo, triggerExit, triggerDeselect
 }) {
     
     // TRIGGER PAGE EXIT //////////////////////////////////////////////

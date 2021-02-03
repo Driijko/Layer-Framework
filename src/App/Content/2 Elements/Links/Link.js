@@ -16,65 +16,48 @@ function Link({
     deselect
 }) {
 
-    // Component variables ---------------------------------------
-    let linkTypeElement;
+    // LINK STYLES /////////////////////////////////////////////////////
     let linkStyleElement;
 
-    // External links -------------------------------------------
-    if (linkType.type === "external") {
+    if (linkStyle.number === 0) {
+        linkStyleElement = (
+            <LinkStyle0
+                width={width}
+                spatial={spatial}
+                colors={linkStyle.colors}
+            >
+                {children}
+            </LinkStyle0>
+        );
+    };
 
-        if (linkStyle.number === 0) {
-            linkStyleElement = (
-                <LinkStyle0
-                    width={width}
-                    spatial={spatial}
-                    colors={linkStyle.colors}
-                    // href={linkType.href}
-                    // target="_blank"
-                >
-                    {children}
-                </LinkStyle0>
-            );
-        }
+    // LINK TYPES /////////////////////////////////////////////////
+    let linkTypeElement;
+
+    // Section links ---------------------------------------------------
+    if (linkType.type === "section") {
 
         linkTypeElement = (
-            <ExternalLink url={linkType.url} />
+            <SectionLink
+                triggerExit={linkType.triggerExit}
+                linkTo={linkType.linkTo}
+            />
         );
     }
-    // Section links ----------------------------------------------
-    else {
+    // Modal links -----------------------------------------------------
+    else if (linkType.type === "modal") {
 
-        if (linkStyle.number === 0) {
-            linkStyleElement = (
-                <LinkStyle0
-                    width={width}
-                    spatial={spatial}
-                    colors={linkStyle.colors}
-                >
-                    {children}
-                </LinkStyle0>
-            );
-        };
-
-        if (linkType.type === "section") {
-
-            linkTypeElement = (
-                <SectionLink
-                    triggerExit={linkType.triggerExit}
-                    linkTo={linkType.linkTo}
-                />
-            );
-        }
-        else if (linkType.type === "modal") {
-
-            linkTypeElement = (
-                <ModalLink
-                    openCloseModals={linkType.openCloseModals}
-                    modalLayerNum={linkType.modalLayerNum}
-                    modalIdentifier={linkType.modalIdentifier}
-                />
-            );
-        };
+        linkTypeElement = (
+            <ModalLink
+                openCloseModals={linkType.openCloseModals}
+                modalLayerNum={linkType.modalLayerNum}
+                modalIdentifier={linkType.modalIdentifier}
+            />
+        );
+    }
+    // External links -------------------------------------------------
+    else if (linkType.type === "external") {
+        linkTypeElement = <ExternalLink url={linkType.url} />
     };
 
     // RENDER //////////////////////////////////////////////////////////
@@ -85,7 +68,7 @@ function Link({
             deselect={deselect}
         >
             {linkStyleElement}
-            {linkTypeElement ? linkTypeElement : <></>}
+            {linkTypeElement}
         </InteractiveElement>
     );
 };

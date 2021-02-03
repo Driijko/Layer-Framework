@@ -4,7 +4,8 @@ import {useEffect} from "react";
 
 // COMPONENT ///////////////////////////////////////////////////////
 function ModalLink({
-    interactivity, openCloseModals, modalIdentifier, modalLayerNum
+    interactivity, openCloseModals, modalIdentifier, modalLayerNum,
+    triggerDeselect
 }) {
     
     // OPEN MODAL LAYER //////////////////////////////////////////////

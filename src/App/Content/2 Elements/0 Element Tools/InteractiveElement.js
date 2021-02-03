@@ -48,6 +48,10 @@ function InteractiveElement({children, focus, enterSelect, deselect}) {
         }
     },[deselect]);
 
+    function triggerDeselect() {
+        setSelected(false);
+    };
+
     // INTERACTIVITY /////////////////////////////////////////////////////
     const [interactivity, setInteractivity] = useState("able");
 
@@ -78,6 +82,7 @@ function InteractiveElement({children, focus, enterSelect, deselect}) {
         else {
             return cloneElement(child, {
                 interactivity: interactivity,
+                triggerDeselect: triggerDeselect,
             });
         };
     });
