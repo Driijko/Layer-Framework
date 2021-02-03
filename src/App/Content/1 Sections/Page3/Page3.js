@@ -16,7 +16,7 @@ function Page3() {
                 {
                     layer: <Page3Layer1 />, 
                     type: "basic", 
-                    focusableElements: 1,
+                    focusableElements: 2,
                     initialRenderedModals: [null],
                 },
                 {

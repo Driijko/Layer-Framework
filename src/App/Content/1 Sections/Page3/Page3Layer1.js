@@ -25,6 +25,13 @@ function Page3Layer1({
                 }}
                 focus={tabIndex === 1} enterSelect={tabIndex === 1 && enterKey}
             >OPEN MODAL</Link>
+
+            <Link width={width} spatial={[0, 5, 20, 3]}
+                linkType={{type:"external", url: "https://www.google.com"}}
+                linkStyle={{number: 0, colors: ["green", "salmon", "white"]}}
+                focus={tabIndex === 2} enterSelect={tabIndex === 2 && enterKey}
+            >EXTERNAL</Link>
+
             <Modals
                 width={width}
                 renderedModals={renderedModals}

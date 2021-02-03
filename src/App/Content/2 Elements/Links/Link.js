@@ -5,6 +5,7 @@ import InteractiveElement from "../0 Element Tools/InteractiveElement";
 // Link Types ----------------------------------------------------
 import SectionLink from "./Link Types/SectionLink";
 import ModalLink from "./Link Types/ModalLink";
+import ExternalLink from "./Link Types/ExternalLink";
 
 // Link Styles ----------------------------------------------------
 import LinkStyle0 from "./Link Styles/LinkStyle0";
@@ -28,13 +29,17 @@ function Link({
                     width={width}
                     spatial={spatial}
                     colors={linkStyle.colors}
-                    href={linkType.href}
-                    target="_blank"
+                    // href={linkType.href}
+                    // target="_blank"
                 >
                     {children}
                 </LinkStyle0>
             );
-        };
+        }
+
+        linkTypeElement = (
+            <ExternalLink url={linkType.url} />
+        );
     }
     // Section links ----------------------------------------------
     else {

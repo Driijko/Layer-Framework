@@ -46,7 +46,7 @@ function InteractiveElement({children, focus, enterSelect, deselect}) {
         if (deselect) {
             setSelected(false);
         }
-    },[deselect])
+    },[deselect]);
 
     // INTERACTIVITY /////////////////////////////////////////////////////
     const [interactivity, setInteractivity] = useState("able");
@@ -65,7 +65,7 @@ function InteractiveElement({children, focus, enterSelect, deselect}) {
         }
     }, [highlight, selected]);
 
-
+    // ADD PROPS TO CHILDREN ////////////////////////////////////////
     const modifiedChildren = Children.map(children, (child, index)=> {
         if (index === 0) {
             return cloneElement(child, {
