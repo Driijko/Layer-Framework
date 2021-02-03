@@ -2,7 +2,7 @@
 import {useState, useEffect, Children, cloneElement} from "react";
 
 // COMPONENT //////////////////////////////////////////////////////////
-function InteractiveElement({children, focus, enterSelect}) {
+function InteractiveElement({children, focus, enterSelect, deselect}) {
 
     // HIGHLIGHTING ////////////////////////////////////////////////////////
     const [highlight, setHighlight] = useState(null);
@@ -41,6 +41,13 @@ function InteractiveElement({children, focus, enterSelect}) {
         };
     }, [enterSelect]);
 
+    // DESELECT ///////////////////////////////////////////////////////
+    useEffect(()=> {
+        if (deselect) {
+            setSelected(false);
+        }
+    },[deselect])
+
     // INTERACTIVITY /////////////////////////////////////////////////////
     const [interactivity, setInteractivity] = useState("able");
 
@@ -57,6 +64,7 @@ function InteractiveElement({children, focus, enterSelect}) {
             };
         }
     }, [highlight, selected]);
+
 
     const modifiedChildren = Children.map(children, (child, index)=> {
         if (index === 0) {

@@ -50,6 +50,8 @@ const Button = styled("button")`${({
     ${transitions(interactivity)}
 `}`;
 
+// CLOSE MODAL LAYER COMPONENT //////////////////////////////////////////
+
 function CloseModalLayer({interactivity, triggerModalExit}) {
     useEffect(()=>{
         if (interactivity === "selected") {
@@ -64,11 +66,6 @@ function CloseModalLayerButton({
     triggerModalExit, width, spatial, focus, enterSelect
 }) {
 
-    // CLOSE MODAL LAYER ////////////////////////////////////////////
-    function handleClick() {
-        triggerModalExit();
-    };
-
     // RENDER ////////////////////////////////////////////////////////
     return (
         <InteractiveElement
@@ -79,7 +76,9 @@ function CloseModalLayerButton({
                 width={width}
                 spatial={spatial}               
             >X</Button>
+
             <CloseModalLayer triggerModalExit={triggerModalExit} />
+            
         </InteractiveElement>
     );
 }

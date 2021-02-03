@@ -7,15 +7,6 @@ import CloseModalLayerButton from "../Buttons/CloseModalLayerButton";
 // COMPONENT //////////////////////////////////////////////////////////
 function NavBarMenu({width, phase, triggerModalExit}) {
 
-    // useEffect(()=> {
-    //     const timerId = setTimeout(
-    //         ()=> {
-    //             triggerModalExit();
-    //         },
-    //         2000
-    //     );
-    // },[]);
-
     // RENDER
     return (
         <>

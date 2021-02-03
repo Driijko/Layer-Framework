@@ -11,15 +11,6 @@ function Modals({renderedModals, openCloseModals, modals}) {
 
     const [modalsToRender, setModalsToRender] = useState(null);
 
-    // TESTING ////////////////////////////////////////////
-    useEffect(()=> {
-        const timerId = setTimeout(()=> {
-            clearTimeout(timerId);
-            openCloseModals(0, "menu");
-        }, 2000)
-    },[]);
-    ////////////////////////////////////////////////////
-
     useEffect(()=> {
         let result = [];
         renderedModals.forEach((modalIdentifier, index) => {
