@@ -4,6 +4,7 @@ import Link from "../../2 Elements/Links/Link";
 import LayerSection from "../0 Section Tools/LayerSection";
 import Modals from "../0 Section Tools/Modals/Modals";
 import TextHeader0 from "../../2 Elements/Text/Text Headers/TextHeader0";
+import NavBarMenu from "../../2 Elements/Menus/NavBarMenu";
 
 // COMPONENT ////////////////////////////////////////////////////////////
 function Page3Layer1({
@@ -28,7 +29,7 @@ function Page3Layer1({
                 openCloseModals={openCloseModals}
                 modals={{
                     menu: {
-                        component: header,
+                        component: <NavBarMenu width={width} />,
                         modalLayerNum: 0,
                     },
                 }}
