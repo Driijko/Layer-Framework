@@ -49,8 +49,7 @@ function Link({
 
         linkTypeElement = (
             <ModalLink
-                openCloseModals={linkType.openCloseModals}
-                modalLayerNum={linkType.modalLayerNum}
+                setModalOpen={linkType.setModalOpen}
                 modalIdentifier={linkType.modalIdentifier}
             />
         );

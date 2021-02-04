@@ -17,7 +17,6 @@ const Div = styled("div")`
 
 // COMPONENT //////////////////////////////////////////////////////////
 function NavBarMenu({
-    // width, phase, triggerModalExit, triggerExit, tabIndex, enterKey
     width, phase, triggerModalExit, triggerExit, tab, enterKey
 }) {
 

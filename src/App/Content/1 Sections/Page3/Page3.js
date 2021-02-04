@@ -19,14 +19,11 @@ function Page3() {
                     type: "basic", 
                     focusableElements: 2,
                     modals: {menu: <NavBarMenu />},
-                    // initialRenderedModals: ["menu"],
-                    // modalFocusableElements: [2],
                 },
                 // {
                 //     layer: <Page3Layer2 />, 
                 //     type: "column", 
                 //     focusableElements: 3,
-                //     // initialRenderedModals: [null],
                 // },
             ]}
             gutter={<div></div>}

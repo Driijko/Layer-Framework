@@ -169,7 +169,6 @@ function Page({layers, gutter}) {
                 layerNum={1}
                 focusableElements={layer.focusableElements}
                 modals={layer.modals}
-                // initialRenderedModals={layers[0].initialRenderedModals}
             >
                 {layer.layer}
             </Layer>
@@ -192,43 +191,6 @@ function Page({layers, gutter}) {
 
             <UniformResponse>
                 {elements}
-
-                {/* <Layer
-                    layerFocus={layerFocus}
-                    changeLayerFocus={changeLayerFocus}
-                    startingTabIndex={startingTabIndex}
-                    tab={tab}
-                    enterKey={enterKey}
-                    triggerExit={triggerExit}
-                    type={layers[0].type}
-                    layerNum={1}
-                    focusableElements={layers[0].focusableElements}
-                    modals={layers[0].modals}
-                    // initialRenderedModals={layers[0].initialRenderedModals}
-                >
-                    {layers[0].layer}
-                </Layer>
-
-                {gutter}
-
-                {layers.length > 1 ?
-                    <Layer
-                        layerFocus={layerFocus}
-                        changeLayerFocus={changeLayerFocus}
-                        startingTabIndex={startingTabIndex}
-                        tab={tab}
-                        enterKey={enterKey}
-                        triggerExit={triggerExit}
-                        type={layers[1].type}
-                        layerNum={2}
-                        focusableElements={layers[1].focusableElements}
-                        modals={layers[1].modals}
-                    >
-                        {layers[1].layer}
-                    </Layer>
-                    : null
-                } */}
-
             </UniformResponse>
         </PageDiv>
     );

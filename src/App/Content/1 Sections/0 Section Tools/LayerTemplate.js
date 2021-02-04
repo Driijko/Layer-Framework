@@ -3,8 +3,7 @@
 
 // COMPONENT ////////////////////////////////////////////////////////////
 function PageXLayerX({
-    width, height, tabIndex, enterKey, triggerExit, changeLayerFocus,
-    renderedModals, openCloseModals,
+    width, height, tabIndex, enterKey, triggerExit, setModalOpen, modalOpen
 }) {
 
     // RENDER /////////////////////////////////////////////////////////////

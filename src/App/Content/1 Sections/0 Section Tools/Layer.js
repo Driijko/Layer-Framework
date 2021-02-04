@@ -10,61 +10,10 @@ import ModalLayer from "./Modals/ModalLayer";
 function Layer({
     children, type, enterKey, tab, triggerExit, layerFocus, changeLayerFocus,
     layerNum, focusableElements, width, height, startingTabIndex, modals
-    // initialRenderedModals, modalFocusableElements
 }) {
 
-    console.log(modals);
-
-    const [modalOpen, setModalOpen] = useState("menu");
-
-    // MODAL LAYERS //////////////////////////////////////////////////
-    // const [renderedModals, setRenderedModals] = useState(initialRenderedModals);
-    // const [modalOpen, setModalOpen] = useState(initialRenderedModals[0] !== null);
-    // const [modalTabIndex, setModalTabIndex] = useState(
-    //     initialRenderedModals.map(()=> 0)
-    // );
-    // const [currentModalLayer, setCurrentModalLayer] = useState(null);
-
-    // useEffect(()=> {
-    //     let highestOpenLayer = -1;
-    //     let currentIndex = 0;
-    //     while(initialRenderedModals[currentIndex] !== null) {
-    //         highestOpenLayer++;
-    //     };
-    //     if (highestOpenLayer > -1) {
-    //         setCurrentModalLayer(highestOpenLayer);
-    //     };
-
-    // },[]);
-
-    // function openCloseModals(modalLayerNum, identifier) {
-
-    //     const result = renderedModals.map((modalLayer, index)=> {
-    //         if (index === modalLayerNum) {
-    //             if (identifier === null) {
-    //                 if (index === 0) {
-    //                     setCurrentModalLayer(null);
-    //                     setModalOpen(false);
-    //                 }
-    //                 else {
-    //                     setCurrentModalLayer(modalLayerNum - 1);
-    //                 };
-    //             }
-    //             else {
-    //                 if (modalLayerNum === 0) {
-    //                     setModalOpen(true);
-    //                 };
-    //                 setCurrentModalLayer(modalLayerNum);
-    //             }
-    //             return identifier;
-    //         }
-    //         else {
-    //             return modalLayer;
-    //         };
-    //     });
-
-    //     setRenderedModals(result);
-    // };
+    // MODAL LAYERS /////////////////////////////////////////////////////
+    const [modalOpen, setModalOpen] = useState(null);
 
     // TAB INDEX  AND FOCUS ///////////////////////////////////////////////////
     const [tabIndex, setTabIndex] = useState(null);
@@ -103,36 +52,6 @@ function Layer({
                 };
             };
         }
-        // Modal layer is open, "stealing" layer focus
-        // else if (modalOpen && tab) {
-        //     let currentModalTabIndex = modalTabIndex[currentModalLayer];
-        //     if (tab === "forwards") {
-        //         if (currentModalTabIndex === modalFocusableElements[currentModalLayer]) {
-        //             currentModalTabIndex = 0;
-        //         }
-        //         else {
-        //             currentModalTabIndex++;
-        //         };
-        //     }
-        //     else if (tab === "backwards") {
-        //         if (currentModalTabIndex === 0) {
-        //             currentModalTabIndex = modalFocusableElements[currentModalLayer];
-        //         }
-        //         else {
-        //             currentModalTabIndex--;
-        //         };
-        //     };
-
-        //     setModalTabIndex(modalTabIndex.map((tabIndex, index)=> {
-        //         if (index === currentModalLayer) {
-        //             return currentModalTabIndex;
-        //         }
-        //         else {
-        //             return tabIndex;
-        //         };
-        //     }));
-        // };
-
     },[tab]);
 
     // ADD PROPS TO CHILD //////////////////////////////////////////
@@ -143,10 +62,7 @@ function Layer({
         enterKey: enterKey,
         "triggerExit": triggerExit,
         "setModalOpen": setModalOpen,
-        // "changeLayerFocus": changeLayerFocus,
-        // renderedModals: renderedModals,
-        // "openCloseModals": openCloseModals,
-        // modalTabIndex: modalTabIndex,
+        modalOpen: modalOpen,
     });
     
     // RENDER ////////////////////////////////////////////////////

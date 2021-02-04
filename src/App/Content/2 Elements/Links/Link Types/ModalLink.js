@@ -4,14 +4,13 @@ import {useEffect} from "react";
 
 // COMPONENT ///////////////////////////////////////////////////////
 function ModalLink({
-    interactivity, openCloseModals, modalIdentifier, modalLayerNum,
-    triggerDeselect
+    interactivity, setModalOpen, modalIdentifier,
 }) {
     
     // OPEN MODAL LAYER //////////////////////////////////////////////
     useEffect(()=> {
         if (interactivity === "selected") {
-            openCloseModals(modalLayerNum, modalIdentifier);
+            setModalOpen(modalIdentifier);
         };
     },[interactivity]);
 

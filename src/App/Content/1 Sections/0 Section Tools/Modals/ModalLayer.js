@@ -5,7 +5,9 @@ import {useState, useEffect, cloneElement} from "react";
 // Import settings ------------------------------------------------------
 import modalPhaseDurations from "./modalPhaseDurations";
 
-function ModalLayer({openCloseModals, children, identifier, modalLayerNum}) {
+function ModalLayer({
+    children, identifier, setModalOpen
+}) {
 
     // PHASE /////////////////////////////////////////////////////////
     const [phase, setPhase] = useState("enter");
@@ -25,7 +27,7 @@ function ModalLayer({openCloseModals, children, identifier, modalLayerNum}) {
         const timerId = setTimeout(
             ()=> {
                 clearTimeout(timerId);
-                openCloseModals(modalLayerNum, null);
+                setModalOpen(null);
             },
             modalPhaseDurations[identifier].exit
         );
