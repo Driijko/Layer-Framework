@@ -16,7 +16,7 @@ function Page3() {
             layers={[
                 {
                     layer: <Page3Layer1 />, 
-                    type: "basic", 
+                    type: "column", 
                     focusableElements: 2,
                     modals: {menu: <NavBarMenu />},
                 },

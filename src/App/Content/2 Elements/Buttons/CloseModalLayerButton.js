@@ -47,6 +47,7 @@ const Button = styled("button")`${({
     transition-duration: 0.5s;
     transition-timing-function: linear;
     cursor: pointer;
+    pointer-events: auto;
     ${transitions(interactivity)}
 `}`;
 

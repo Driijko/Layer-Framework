@@ -9,6 +9,7 @@ import positioning from "../0 Element Tools/positioning";
 import TextHeader0 from "../Text/Text Headers/TextHeader0";
 import CloseModalLayerButton from "../Buttons/CloseModalLayerButton";
 import Link from "../Links/Link";
+import LayerSection from "../../1 Sections/0 Section Tools/LayerSection";
 
 // Import custom hooks ----------------------------------------------
 import useTabCycle from "../../1 Sections/0 Section Tools/useTabCycle";
@@ -20,7 +21,7 @@ const Div = styled("div")`
 
 // COMPONENT //////////////////////////////////////////////////////////
 function NavBarMenu({
-    width, phase, triggerModalExit, triggerExit, tab, enterKey
+    width, height, phase, triggerModalExit, triggerExit, tab, enterKey
 }) {
 
     // MODAL LAYER ///////////////////////////////////////////////////
@@ -31,7 +32,7 @@ function NavBarMenu({
 
     // RENDER
     return (
-        <>
+        <LayerSection type="fixed" containerSize={{width: width, height: height}}>
             <Div />
 
             <TextHeader0
@@ -56,9 +57,9 @@ function NavBarMenu({
                 linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
                 focus={tabIndex === 3} enterSelect={tabIndex === 3 && enterKey}
             >Menu Link 2</Link>
-        </>
-    )
-}
+        </LayerSection>
+    );
+};
 
 // EXPORTS ////////////////////////////////////////////////////////
 export default NavBarMenu;

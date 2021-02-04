@@ -50,7 +50,6 @@ const Line = styled("div")`${({interactivity})=>css`
 
 // COMPONENT ///////////////////////////////////////////////////////////////
 function MenuIcon({spatial, interactivity, onClick, onMouseEnter, onMouseLeave}) {
-    console.log(interactivity);
 
     // RENDER //////////////////////////////////////////////////////
     return (

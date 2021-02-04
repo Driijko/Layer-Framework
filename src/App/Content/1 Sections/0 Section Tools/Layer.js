@@ -75,6 +75,7 @@ function Layer({
                         cloneElement(modals[modalOpen], {
                             "triggerExit": triggerExit,
                             width: width,
+                            height: height,
                             tab: tab,
                             enterKey: enterKey,
                         })
