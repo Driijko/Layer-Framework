@@ -152,6 +152,34 @@ function Page({layers, gutter}) {
         }
     }, [tab]);
 
+    // ORGANIZE LAYERS FOR UNIFORM RESPONSE ///////////////////////////
+    const elements = [];
+    layers.forEach((layer, index)=> {
+
+        elements.push(
+            <Layer
+                key={index}
+                layerFocus={layerFocus}
+                changeLayerFocus={changeLayerFocus}
+                startingTabIndex={startingTabIndex}
+                tab={tab}
+                enterKey={enterKey}
+                triggerExit={triggerExit}
+                type={layer.type}
+                layerNum={1}
+                focusableElements={layer.focusableElements}
+                modals={layer.modals}
+                // initialRenderedModals={layers[0].initialRenderedModals}
+            >
+                {layer.layer}
+            </Layer>
+        );
+
+        if (index === 0) {
+            elements.push(cloneElement(gutter, {key: 100}));
+        };
+    });
+
     // RENDER /////////////////////////////////////////////////////////////
     return (
         <PageDiv phase={phase}>
@@ -163,8 +191,9 @@ function Page({layers, gutter}) {
             {/* <Audio audio={[sfxEnterExit]} playAudio={playSfx} /> */}
 
             <UniformResponse>
+                {elements}
 
-                <Layer
+                {/* <Layer
                     layerFocus={layerFocus}
                     changeLayerFocus={changeLayerFocus}
                     startingTabIndex={startingTabIndex}
@@ -174,7 +203,8 @@ function Page({layers, gutter}) {
                     type={layers[0].type}
                     layerNum={1}
                     focusableElements={layers[0].focusableElements}
-                    initialRenderedModals={layers[0].initialRenderedModals}
+                    modals={layers[0].modals}
+                    // initialRenderedModals={layers[0].initialRenderedModals}
                 >
                     {layers[0].layer}
                 </Layer>
@@ -192,11 +222,12 @@ function Page({layers, gutter}) {
                         type={layers[1].type}
                         layerNum={2}
                         focusableElements={layers[1].focusableElements}
+                        modals={layers[1].modals}
                     >
                         {layers[1].layer}
                     </Layer>
-                    : <></>
-                }
+                    : null
+                } */}
 
             </UniformResponse>
         </PageDiv>

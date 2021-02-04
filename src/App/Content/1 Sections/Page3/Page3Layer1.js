@@ -7,14 +7,14 @@ import NavBarMenu from "../../2 Elements/Menus/NavBarMenu";
 
 // COMPONENT ////////////////////////////////////////////////////////////
 function Page3Layer1({
-    width, height, tabIndex, enterKey, triggerExit, changeLayerFocus,
-    renderedModals, openCloseModals
+    width, height, tabIndex, enterKey, triggerExit, 
+    // changeLayerFocus, renderedModals, openCloseModals, modalTabIndex
 }) {
 
     // RENDER /////////////////////////////////////////////////////////////
     return (
         <>
-            <Link width={width} spatial={[0, 0, 20, 4]}
+            {/* <Link width={width} spatial={[0, 20, 20, 4]}
                 linkType={{
                     type: "modal", openCloseModals: openCloseModals,
                     modalLayerNum: 0, modalIdentifier: "menu",
@@ -24,7 +24,7 @@ function Page3Layer1({
                     number: 0, colors: ["red", "yellow", "pink"]
                 }}
                 focus={tabIndex === 1} enterSelect={tabIndex === 1 && enterKey}
-            >OPEN MODAL</Link>
+            >OPEN MODAL</Link> */}
 
             <Link width={width} spatial={[0, 5, 20, 3]}
                 linkType={{type:"external", url: "https://www.google.com"}}
@@ -32,17 +32,23 @@ function Page3Layer1({
                 focus={tabIndex === 2} enterSelect={tabIndex === 2 && enterKey}
             >EXTERNAL</Link>
 
-            <Modals
+            {/* <Modals
                 width={width}
                 renderedModals={renderedModals}
                 openCloseModals={openCloseModals}
                 modals={{
                     menu: {
-                        component: <NavBarMenu width={width} />,
+                        component: 
+                        <NavBarMenu
+                            width={width} 
+                            triggerExit={triggerExit}
+                            tabIndex={modalTabIndex[0]}
+                            enterKey={enterKey}
+                        />,
                         modalLayerNum: 0,
                     },
                 }}
-            />
+            /> */}
         </>
     );
 };
