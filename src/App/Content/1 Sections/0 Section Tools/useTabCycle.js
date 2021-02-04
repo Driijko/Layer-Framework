@@ -1,12 +1,12 @@
 // IMPORTS ///////////////////////////////////////////////////////////
 import {useState, useEffect} from "react";
 
-function useTabCycle(tab, focusableElements) {
+function useTabCycle(tab, focusableElements, modalOpen) {
 
     const [tabIndex, setTabIndex] = useState(0);
 
     useEffect(()=> {
-        if (tab) {
+        if (tab && modalOpen === false) {
             if (tab === "forwards") {
                 if (tabIndex === focusableElements) {
                     setTabIndex(0);
@@ -24,7 +24,7 @@ function useTabCycle(tab, focusableElements) {
                 };
             };
         };
-    },[tab, focusableElements]);
+    },[tab, focusableElements, modalOpen]);
 
     return tabIndex;
 

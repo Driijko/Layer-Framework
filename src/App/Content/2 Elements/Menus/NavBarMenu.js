@@ -10,6 +10,8 @@ import TextHeader0 from "../Text/Text Headers/TextHeader0";
 import CloseModalLayerButton from "../Buttons/CloseModalLayerButton";
 import Link from "../Links/Link";
 import LayerSection from "../../1 Sections/0 Section Tools/LayerSection";
+import ModalLayer from "../../1 Sections/0 Section Tools/Modals/ModalLayer";
+import TestModal from "./TestModal";
 
 // Import custom hooks ----------------------------------------------
 import useTabCycle from "../../1 Sections/0 Section Tools/useTabCycle";
@@ -28,36 +30,58 @@ function NavBarMenu({
     const [modalOpen, setModalOpen] = useState(null);
 
     // TAB CYCLE /////////////////////////////////////////////////////
-    const tabIndex = useTabCycle(tab, 3);
+    const tabIndex = useTabCycle(tab, 4, modalOpen !== null);
 
     // RENDER
     return (
-        <LayerSection type="fixed" containerSize={{width: width, height: height}}>
-            <Div />
+<>
+<LayerSection type="fixed" containerSize={{width: width, height: height}}>
+    <Div />
 
-            <TextHeader0
-                width={width}
-                spatial={[0, 0, 20, 4]}
-                level={1}
-            ><h1>{phase}</h1></TextHeader0>
+    <TextHeader0
+        width={width}
+        spatial={[0, 0, 20, 4]}
+        level={1}
+    ><h1>{phase}</h1></TextHeader0>
 
-            <CloseModalLayerButton width={width} spatial={[9, 5, 2, 2]}
-                triggerModalExit={triggerModalExit}
-                focus={tabIndex === 1} enterSelect={tabIndex === 1 && enterKey}
+    <CloseModalLayerButton width={width} spatial={[9, 5, 2, 2]}
+        triggerModalExit={triggerModalExit}
+        focus={tabIndex === 1} enterSelect={tabIndex === 1 && enterKey}
+    />
+
+    <Link width={width} spatial={[0, 7, 20, 4]}
+        linkType={{type: "section", triggerExit: triggerExit, linkTo: "/page1"}}
+        linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
+        focus={tabIndex === 2} enterSelect={tabIndex === 2 && enterKey}
+    >Menu Link 1</Link>
+
+    <Link width={width} spatial={[0, 12, 20, 4]}
+        linkType={{type: "section", triggerExit: triggerExit, linkTo: "/page1"}}
+        linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
+        focus={tabIndex === 3} enterSelect={tabIndex === 3 && enterKey}
+    >Menu Link 2</Link>
+
+    <Link width={width} spatial={[0, 16, 20, 4]}
+        linkType={{type: "modal", "setModalOpen": setModalOpen, modalIdentifier: "test"}}
+        deselect={modalOpen !== "test"}
+        linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
+        focus={tabIndex === 4} enterSelect={tabIndex === 4 && enterKey}
+    >Test Modal</Link>
+
+</LayerSection>
+{
+    modalOpen === "test" ?
+        <ModalLayer
+            identifier="test"
+            setModalOpen={setModalOpen}
+        >
+            <TestModal 
+                width={width} height={height}
             />
-
-            <Link width={width} spatial={[0, 7, 20, 4]}
-                linkType={{type: "section", triggerExit: triggerExit, linkTo: "/page1"}}
-                linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
-                focus={tabIndex === 2} enterSelect={tabIndex === 2 && enterKey}
-            >Menu Link 1</Link>
-
-            <Link width={width} spatial={[0, 12, 20, 4]}
-                linkType={{type: "section", triggerExit: triggerExit, linkTo: "/page1"}}
-                linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
-                focus={tabIndex === 3} enterSelect={tabIndex === 3 && enterKey}
-            >Menu Link 2</Link>
-        </LayerSection>
+        </ModalLayer>
+        : null
+}
+</>
     );
 };
 
