@@ -32,7 +32,7 @@ function Layer({
     useEffect(()=> {
         // No modals are open, tab has been pressed, and this layer
         // is in focus.
-        if (tab && layerFocus === layerNum) {
+        if (modalOpen === null && tab && layerFocus === layerNum) {
             if (tab === "forwards") {
                 if (tabIndex === focusableElements) {
                     changeLayerFocus("forwards");
