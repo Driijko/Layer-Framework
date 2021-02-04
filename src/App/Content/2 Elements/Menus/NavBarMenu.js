@@ -1,4 +1,7 @@
 // IMPORTS ///////////////////////////////////////////////
+// Import libraries ---------------------------------------------------
+import {useState} from "react";
+
 import styled from "styled-components";
 import positioning from "../0 Element Tools/positioning";
 
@@ -20,33 +23,38 @@ function NavBarMenu({
     width, phase, triggerModalExit, triggerExit, tab, enterKey
 }) {
 
+    // MODAL LAYER ///////////////////////////////////////////////////
+    const [modalOpen, setModalOpen] = useState(null);
+
     // TAB CYCLE /////////////////////////////////////////////////////
-    const tabIndex = useTabCycle(tab, 2);
+    const tabIndex = useTabCycle(tab, 3);
 
     // RENDER
     return (
         <>
             <Div />
+
             <TextHeader0
                 width={width}
                 spatial={[0, 0, 20, 4]}
                 level={1}
             ><h1>{phase}</h1></TextHeader0>
-            <CloseModalLayerButton
-                width={width}
-                spatial={[9, 5, 2, 2]}
+
+            <CloseModalLayerButton width={width} spatial={[9, 5, 2, 2]}
                 triggerModalExit={triggerModalExit}
+                focus={tabIndex === 1} enterSelect={tabIndex === 1 && enterKey}
             />
+
             <Link width={width} spatial={[0, 7, 20, 4]}
                 linkType={{type: "section", triggerExit: triggerExit, linkTo: "/page1"}}
                 linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
-                focus={tabIndex === 1} enterSelect={tabIndex === 1 && enterKey}
+                focus={tabIndex === 2} enterSelect={tabIndex === 2 && enterKey}
             >Menu Link 1</Link>
 
             <Link width={width} spatial={[0, 12, 20, 4]}
                 linkType={{type: "section", triggerExit: triggerExit, linkTo: "/page1"}}
                 linkStyle={{number: 0, colors: ["red", "blue", "yellow"]}}
-                focus={tabIndex === 2} enterSelect={tabIndex === 2 && enterKey}
+                focus={tabIndex === 3} enterSelect={tabIndex === 3 && enterKey}
             >Menu Link 2</Link>
         </>
     )
