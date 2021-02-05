@@ -36,10 +36,7 @@ function App() {
       <SiteForegroundContextProvider>
         <Router>
           <Switch>
-            <Route path="/page1" component={Page1} />
-            <Route path="/page2" component={Page2} />
-            <Route path="/page3" component={Page3} />
-            <Route path="/splash" component={SplashScreen} />
+            <Route path="/demo" />
           </Switch>
         </Router>
         <SiteForeground />
