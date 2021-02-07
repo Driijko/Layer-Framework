@@ -13,10 +13,8 @@ import SiteBackground from "./Content/0 Site/SiteBackground";
 import {SiteForeground} from "./Content/0 Site/SiteForeground";
 
 // Import Pages ---------------------------------------------------------
-import Page1 from "./Content/1 Sections/Page 1/Page1";
-import Page2 from "./Content/1 Sections/Page2/Page2";
-import Page3 from "./Content/1 Sections/Page3/Page3";
-import SplashScreen from "./Content/1 Sections/Splash Screen/SplashScreen";
+import SplashIntroPage from "./Content/1 Sections/Demo/SplashIntro/SplashIntroPage";
+import HomePage from "./Content/1 Sections/Demo/1 Home Page/HomePage";
 
 // Import custom hooks ---------------------------------------------
 import WindowResize from "./Tools/hooks/WindowResize";
@@ -36,7 +34,8 @@ function App() {
       <SiteForegroundContextProvider>
         <Router>
           <Switch>
-            <Route path="/demo" />
+            <Route exact path="/demo" component={SplashIntroPage}/>
+            <Route path="/demo/home" component={HomePage} />
           </Switch>
         </Router>
         <SiteForeground />

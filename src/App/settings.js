@@ -20,6 +20,9 @@ const gridMultiplier = 10;
 // Delay time after user resizes window before page refresh.
 const delay = 2000;
 
+// RESPONSIVE TEXT MAX WIDTH ///////////////////////////////////////////
+const maxWidth = 960;
+
 // PAGE TRANSITION DURATION ///////////////////////////////////////////////
 // The time, in seconds, it takes to fade out one page and fade in another.
 // This number is used by the Page component as well as the SiteForeground
@@ -30,10 +33,12 @@ const pageTransitionDuration = 4;
 
 const hor = calcUnits(ratioWidth, gridMultiplier);
 const ver = calcUnits(ratioHeight, gridMultiplier);
+const gridWidth = ratioWidth * gridMultiplier;
+const gridHeight = ratioHeight * gridMultiplier;
 
 export {
-    ratioWidth, ratioHeight, ratio, gapRatio,
-    delay, hor, ver, pageTransitionDuration,
+    ratioWidth, ratioHeight, ratio, gapRatio, delay, hor, ver, 
+    pageTransitionDuration, maxWidth, gridWidth, gridHeight
 };
 
 function calcUnits(dimension, gridMultiplier) {
@@ -50,4 +55,4 @@ function calcUnits(dimension, gridMultiplier) {
         }
     }
     return result;
-}
+};

@@ -17,7 +17,8 @@ const TextHeader0 = styled("div")`${({
     align-items: center;
     text-align: center;
     box-sizing: border-box;
-    border: 5px solid purple;
+    font-family: Julius Sans One;
+    color: hsla(300, 100%, 70%, 0.8);
     font-size: ${width/levelToFontSize[level - 1]}px;
 `}`;
 
